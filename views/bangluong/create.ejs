@@ -1,0 +1,39 @@
+<%- include('../layouts/layout', { title: 'Thêm Bảng Lương', body: `
+  <h1>Thêm Bảng Lương</h1>
+  <form action="/bangluong/create" method="POST">
+    <div class="mb-3">
+      <label for="nhanVienId" class="form-label">ID Nhân Viên</label>
+      <input type="text" class="form-control" id="nhanVienId" name="nhanVienId" required>
+      <small class="form-text text-muted">Nhập ObjectId của nhân viên (lấy từ danh sách nhân viên).</small>
+    </div>
+    <div class="mb-3">
+      <label for="ngayDiLam" class="form-label">Ngày Đi Làm</label>
+      <input type="date" class="form-control" id="ngayDiLam" name="ngayDiLam" required>
+    </div>
+    <div class="mb-3">
+      <label for="ngayNghi" class="form-label">Số Ngày Nghỉ</label>
+      <input type="number" class="form-control" id="ngayNghi" name="ngayNghi" value="0">
+    </div>
+    <div class="mb-3">
+      <label for="mucLuong" class="form-label">Mức Lương</label>
+      <input type="number" class="form-control" id="mucLuong" name="mucLuong" required>
+    </div>
+    <div class="mb-3">
+      <label for="bonus" class="form-label">Bonus</label>
+      <input type="number" class="form-control" id="bonus" name="bonus" value="0">
+    </div>
+    <div class="mb-3">
+      <label for="phuCap" class="form-label">Phụ Cấp</label>
+      <input type="number" class="form-control" id="phuCap" name="phuCap" value="0">
+    </div>
+    <div class="mb-3">
+      <label for="thue" class="form-label">Thuế</label>
+      <input type="number" class="form-control" id="thue" name="thue" value="0">
+    </div>
+    <div class="mb-3">
+      <label for="ghiChu" class="form-label">Ghi Chú</label>
+      <textarea class="form-control" id="ghiChu" name="ghiChu"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Thêm</button>
+  </form>
+` }) %>

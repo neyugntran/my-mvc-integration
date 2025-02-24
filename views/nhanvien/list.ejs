@@ -1,0 +1,33 @@
+<%- include('../layouts/layout', { title: 'Danh sách Nhân Viên', body: `
+  <h1>Danh sách Nhân Viên</h1>
+  <a href="/nhanvien/create" class="btn btn-primary mb-3">Thêm Nhân Viên</a>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Họ Tên</th>
+        <th>Ngày Sinh</th>
+        <th>Địa Chỉ</th>
+        <th>SĐT</th>
+        <th>Email</th>
+        <th>Chức Vụ</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${nhanviens.map(nv => `
+        <tr>
+          <td>${nv.hoTen}</td>
+          <td>${new Date(nv.ngaySinh).toLocaleDateString()}</td>
+          <td>${nv.diaChi}</td>
+          <td>${nv.soDienThoai}</td>
+          <td>${nv.email}</td>
+          <td>${nv.chucVu}</td>
+          <td>
+            <a href="/nhanvien/edit/${nv._id}" class="btn btn-success btn-sm">Sửa</a>
+            <a href="/nhanvien/delete/${nv._id}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn xóa?')">Xóa</a>
+          </td>
+        </tr>
+      `).join('')}
+    </tbody>
+  </table>
+` }) %>

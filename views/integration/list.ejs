@@ -1,0 +1,35 @@
+<%- include('../layouts/layout', { title: 'Báo cáo Lương Nhân Viên', body: `
+  <h1 class="mb-4">Báo cáo Lương Nhân Viên</h1>
+  <div class="row">
+    ${integratedData.map(emp => `
+      <div class="col-md-6">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-primary text-white">
+            <h5 class="card-title mb-0">${emp.hoTen}</h5>
+          </div>
+          <div class="card-body">
+            <p><strong>Ngày Sinh:</strong> ${new Date(emp.ngaySinh).toLocaleDateString()}</p>
+            <p><strong>Email:</strong> ${emp.email}</p>
+            <p><strong>Chức Vụ:</strong> ${emp.chucVu}</p>
+            <p><strong>Phòng Ban:</strong> ${emp.phongBan}</p>
+            <hr>
+            <h6>Thông Tin Lương:</h6>
+            ${emp.bangLuongs && emp.bangLuongs.length > 0 
+              ? `<ul class="list-group list-group-flush">
+                  ${emp.bangLuongs.map(bl => `
+                    <li class="list-group-item">
+                      <strong>Ngày:</strong> ${new Date(bl.ngayDiLam).toLocaleDateString()}<br>
+                      <strong>Lương:</strong> ${bl.mucLuong.toLocaleString()} đ<br>
+                      <strong>Bonus:</strong> ${bl.bonus.toLocaleString()} đ<br>
+                      <strong>Phụ Cấp:</strong> ${bl.phuCap.toLocaleString()} đ
+                    </li>
+                  `).join('')}
+                </ul>`
+              : `<p class="text-muted">Chưa có thông tin lương.</p>`
+            }
+          </div>
+        </div>
+      </div>
+    `).join('')}
+  </div>
+` }) %>

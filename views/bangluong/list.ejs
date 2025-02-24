@@ -1,0 +1,33 @@
+<%- include('../layouts/layout', { title: 'Danh sách Bảng Lương', body: `
+  <h1>Danh sách Bảng Lương</h1>
+  <a href="/bangluong/create" class="btn btn-primary mb-3">Thêm Bảng Lương</a>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nhân Viên</th>
+        <th>Ngày Đi Làm</th>
+        <th>Số Ngày Nghỉ</th>
+        <th>Mức Lương</th>
+        <th>Bonus</th>
+        <th>Phụ Cấp</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${bangluongs.map(bl => `
+        <tr>
+          <td>${bl.nhanVienId ? bl.nhanVienId.hoTen : ''}</td>
+          <td>${new Date(bl.ngayDiLam).toLocaleDateString()}</td>
+          <td>${bl.ngayNghi}</td>
+          <td>${bl.mucLuong.toLocaleString()} đ</td>
+          <td>${bl.bonus.toLocaleString()} đ</td>
+          <td>${bl.phuCap.toLocaleString()} đ</td>
+          <td>
+            <a href="/bangluong/edit/${bl._id}" class="btn btn-success btn-sm">Sửa</a>
+            <a href="/bangluong/delete/${bl._id}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn xóa?')">Xóa</a>
+          </td>
+        </tr>
+      `).join('')}
+    </tbody>
+  </table>
+` }) %>
