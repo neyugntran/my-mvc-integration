@@ -1,10 +1,10 @@
 <%- include('../layouts/layout', { title: 'Báo cáo Lương Nhân Viên', body: `
-  <h1 class="mb-4">Báo cáo Lương Nhân Viên</h1>
+  <h1 class="mb-4 text-primary">Báo cáo Lương Nhân Viên</h1>
   <div class="row">
     ${integratedData.map(emp => `
-      <div class="col-md-6">
-        <div class="card mb-4 shadow-sm">
-          <div class="card-header bg-primary text-white">
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-sm modern-card">
+          <div class="card-header bg-secondary text-white">
             <h5 class="card-title mb-0">${emp.hoTen}</h5>
           </div>
           <div class="card-body">
@@ -13,11 +13,11 @@
             <p><strong>Chức Vụ:</strong> ${emp.chucVu}</p>
             <p><strong>Phòng Ban:</strong> ${emp.phongBan}</p>
             <hr>
-            <h6>Thông Tin Lương:</h6>
+            <h6 class="fw-bold text-primary">Thông Tin Lương:</h6>
             ${emp.bangLuongs && emp.bangLuongs.length > 0 
               ? `<ul class="list-group list-group-flush">
                   ${emp.bangLuongs.map(bl => `
-                    <li class="list-group-item">
+                    <li class="list-group-item modern-list-item">
                       <strong>Ngày:</strong> ${new Date(bl.ngayDiLam).toLocaleDateString()}<br>
                       <strong>Lương:</strong> ${bl.mucLuong.toLocaleString()} đ<br>
                       <strong>Bonus:</strong> ${bl.bonus.toLocaleString()} đ<br>

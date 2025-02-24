@@ -1,38 +1,41 @@
 <%- include('../layouts/layout', { title: 'Chỉnh sửa Bảng Lương', body: `
-  <h1>Chỉnh sửa Bảng Lương</h1>
-  <form action="/bangluong/edit/${bangluong._id}" method="POST">
-    <div class="mb-3">
-      <label for="nhanVienId" class="form-label">ID Nhân Viên</label>
-      <input type="text" class="form-control" id="nhanVienId" name="nhanVienId" value="${bangluong.nhanVienId}" required>
-    </div>
-    <div class="mb-3">
-      <label for="ngayDiLam" class="form-label">Ngày Đi Làm</label>
-      <input type="date" class="form-control" id="ngayDiLam" name="ngayDiLam" value="${new Date(bangluong.ngayDiLam).toISOString().split('T')[0]}" required>
-    </div>
-    <div class="mb-3">
-      <label for="ngayNghi" class="form-label">Số Ngày Nghỉ</label>
-      <input type="number" class="form-control" id="ngayNghi" name="ngayNghi" value="${bangluong.ngayNghi}">
-    </div>
-    <div class="mb-3">
-      <label for="mucLuong" class="form-label">Mức Lương</label>
-      <input type="number" class="form-control" id="mucLuong" name="mucLuong" value="${bangluong.mucLuong}" required>
-    </div>
-    <div class="mb-3">
-      <label for="bonus" class="form-label">Bonus</label>
-      <input type="number" class="form-control" id="bonus" name="bonus" value="${bangluong.bonus}">
-    </div>
-    <div class="mb-3">
-      <label for="phuCap" class="form-label">Phụ Cấp</label>
-      <input type="number" class="form-control" id="phuCap" name="phuCap" value="${bangluong.phuCap}">
-    </div>
-    <div class="mb-3">
-      <label for="thue" class="form-label">Thuế</label>
-      <input type="number" class="form-control" id="thue" name="thue" value="${bangluong.thue}">
-    </div>
-    <div class="mb-3">
-      <label for="ghiChu" class="form-label">Ghi Chú</label>
-      <textarea class="form-control" id="ghiChu" name="ghiChu">${bangluong.ghiChu}</textarea>
-    </div>
-    <button type="submit" class="btn btn-success">Cập nhật</button>
-  </form>
+  <h1 class="mb-4 text-primary">Chỉnh sửa Bảng Lương</h1>
+  <div class="card shadow-sm p-4 rounded">
+    <form action="/bangluong/edit/${bangluong._id}" method="POST">
+      <div class="mb-3">
+        <label for="nhanVienId" class="form-label fw-bold text-primary">Chọn Nhân Viên</label>
+        <input type="text" class="form-control modern-input" id="nhanVienId" name="nhanVienId" value="${bangluong.nhanVienId}" readonly>
+        <small class="form-text text-muted">Không thể thay đổi nhân viên của bản ghi lương.</small>
+      </div>
+      <div class="mb-3">
+        <label for="ngayDiLam" class="form-label fw-bold text-primary">Ngày Đi Làm</label>
+        <input type="date" class="form-control modern-input" id="ngayDiLam" name="ngayDiLam" value="${new Date(bangluong.ngayDiLam).toISOString().split('T')[0]}" required>
+      </div>
+      <div class="mb-3">
+        <label for="ngayNghi" class="form-label fw-bold text-primary">Số Ngày Nghỉ</label>
+        <input type="number" class="form-control modern-input" id="ngayNghi" name="ngayNghi" value="${bangluong.ngayNghi}">
+      </div>
+      <div class="mb-3">
+        <label for="mucLuong" class="form-label fw-bold text-primary">Mức Lương</label>
+        <input type="number" class="form-control modern-input" id="mucLuong" name="mucLuong" value="${bangluong.mucLuong}" required>
+      </div>
+      <div class="mb-3">
+        <label for="bonus" class="form-label fw-bold text-primary">Bonus</label>
+        <input type="number" class="form-control modern-input" id="bonus" name="bonus" value="${bangluong.bonus}">
+      </div>
+      <div class="mb-3">
+        <label for="phuCap" class="form-label fw-bold text-primary">Phụ Cấp</label>
+        <input type="number" class="form-control modern-input" id="phuCap" name="phuCap" value="${bangluong.phuCap}">
+      </div>
+      <div class="mb-3">
+        <label for="thue" class="form-label fw-bold text-primary">Thuế</label>
+        <input type="number" class="form-control modern-input" id="thue" name="thue" value="${bangluong.thue}">
+      </div>
+      <div class="mb-3">
+        <label for="ghiChu" class="form-label fw-bold text-primary">Ghi Chú</label>
+        <textarea class="form-control modern-input" id="ghiChu" name="ghiChu">${bangluong.ghiChu}</textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-custom w-100">Cập nhật</button>
+    </form>
+  </div>
 ` }) %>

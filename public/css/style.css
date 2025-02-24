@@ -1,34 +1,285 @@
-body {
-    background-color: #f8f9fa;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Thêm font chữ Google */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@400;500&display=swap');
+
+/* Reset mặc định */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Font Roboto dễ đọc, chuyên nghiệp */
+    background-color: #ECF0F1;
+    /* Màu nền xám nhạt */
+    color: #2F2E33;
+    /* Màu chữ xám đậm */
+}
+
+
+/* Sidebar */
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #6A829D;
+    /* Xanh xám nhạt hơn (từ #4A677D thành #6A829D) */
+    padding-top: 20px;
+    transition: width 0.3s ease;
+}
+
+.sidebar .nav-link {
+    padding: 10px 20px;
+    color: #fff !important;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    /* Font Poppins nhẹ nhàng cho sidebar */
+}
+
+.sidebar .nav-link:hover {
+    background-color: #7A92AD;
+    /* Xanh xám nhạt hơn khi hover */
+    color: #F1C40F !important;
+    /* Vàng nhạt khi hover */
+}
+
+.sidebar-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header a {
+    color: #fff;
+    /* Giữ màu trắng cho tiêu đề "MVC Integration" */
+}
+
+
+/* Tùy chọn thêm: Nếu muốn màu nhạt hơn cho "MVC Integration" */
+
+.sidebar-header a.text-light-blue {
+    color: #A8D5F0;
+    /* Xanh nhạt hơn, tùy chọn */
+}
+
+
+/* Content */
+
+.content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    min-height: 100vh;
+}
+
+
+/* Navbar */
 
 .navbar {
-    border-bottom: 2px solid #e9ecef;
+    background-color: #8BC6EC;
+    /* Giữ nguyên xanh nhạt cho navbar */
+    padding: 0.5rem 1rem;
 }
+
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
+}
+
+.nav-link:hover {
+    color: #F1C40F !important;
+    /* Vàng nhạt khi hover */
+}
+
+
+/* Container */
 
 .container {
-    max-width: 960px;
+    max-width: 1200px;
 }
 
-.card {
-    border: none;
+
+/* Text Primary */
+
+.text-primary {
+    color: #6A829D !important;
+    /* Xanh xám nhạt hơn (từ #4A677D thành #6A829D) */
+}
+
+
+/* Dashboard Hero */
+
+.dashboard-hero {
+    background: linear-gradient(135deg, #6A829D, #8BC6EC);
+    /* Cập nhật xanh nhạt hơn cho gradient */
+    padding: 4rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Button Custom */
+
+.btn-custom {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+    background-color: #8BC6EC;
+    /* Giữ nguyên xanh nhạt cho nút chính */
+    border-color: #8BC6EC;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #77B9E1;
+    /* Xanh nhạt hơn khi hover */
+    border-color: #77B9E1;
+}
+
+.btn-secondary {
+    background-color: #A5D4F1;
+    /* Xanh nhạt hơn */
+    border-color: #A5D4F1;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #92C7E6;
+    /* Xanh nhạt hơn khi hover */
+    border-color: #92C7E6;
+}
+
+.btn-accent {
+    background-color: #E74C3C;
+    border-color: #E74C3C;
+    color: #fff;
+}
+
+.btn-accent:hover {
+    background-color: #C0392B;
+    border-color: #C0392B;
+}
+
+.btn-danger {
+    background-color: #E74C3C;
+    border-color: #E74C3C;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #C0392B;
+    border-color: #C0392B;
+}
+
+
+/* Modern Input */
+
+.modern-input {
+    border-radius: 5px;
+    border: 1px solid #BDC3C7;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    /* Font Roboto cho input */
+    font-size: 14px;
+    /* Kích thước font nhỏ hơn, dễ đọc */
+    padding: 0.5rem 0.75rem;
+    /* Khoảng cách trong input */
+}
+
+.modern-input:focus {
+    border-color: #8BC6EC;
+    /* Giữ nguyên xanh nhạt */
+    box-shadow: 0 0 8px rgba(139, 198, 236, 0.3);
+    /* Xanh nhạt hơn */
+}
+
+
+/* Table Modern */
+
+.table-modern {
+    background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
 }
 
+.table-modern thead {
+    background-color: #8BC6EC;
+    /* Giữ nguyên xanh nhạt cho bảng */
+}
+
+.table-modern tbody tr:hover {
+    background-color: #F8F9FA;
+    transition: background-color 0.2s ease;
+}
+
+
+/* Card Modern */
+
+.modern-card {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.modern-card:hover {
+    transform: translateY(-5px);
+}
+
 .card-header {
-    font-size: 1.1rem;
+    background-color: #8BC6EC;
+    /* Giữ nguyên xanh nhạt */
 }
 
-.btn {
-    border-radius: 20px;
+
+/* List Item Modern */
+
+.modern-list-item {
+    border: none;
+    padding: 0.75rem;
+    background-color: #F8F9FA;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
 }
 
-h1 {
-    color: #343a40;
+
+/* Footer */
+
+footer {
+    background: #6A829D;
+    /* Xanh xám nhạt hơn (từ #4A677D thành #6A829D) */
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 250px);
+    left: 250px;
 }
 
-.table {
-    background-color: #fff;
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+    footer {
+        width: 100%;
+        left: 0;
+    }
 }

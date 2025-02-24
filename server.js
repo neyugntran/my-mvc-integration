@@ -4,24 +4,19 @@ const { connectDB } = require('./db');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Kết nối CSDL
 connectDB();
 
-// Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Cấu hình view engine EJS
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// Import routes
 const nhanVienRoutes = require('./routes/nhanVienRoutes');
 const bangLuongRoutes = require('./routes/bangLuongRoutes');
 const integrationRoutes = require('./routes/integrationRoutes');
 
-// Định tuyến
 app.get('/', (req, res) => res.render('index', { title: 'Dashboard' }));
 app.use('/nhanvien', nhanVienRoutes);
 app.use('/bangluong', bangLuongRoutes);

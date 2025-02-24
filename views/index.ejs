@@ -1,11 +1,11 @@
 <%- include('layouts/layout', { title: 'Dashboard', body: `
-  <div class="text-center">
-    <h1>Chào mừng đến với MVC Integration System</h1>
-    <p>Quản lý Nhân Viên và Bảng Lương với giao diện hiện đại, trực quan.</p>
+  <div class="text-center dashboard-hero">
+    <h1 class="display-4 fw-bold text-white animate__animated animate__fadeIn">Quản lý Nhân Viên và Bảng Lương</h1>
+    <p class="lead text-muted animate__animated animate__fadeIn animate__delay-1s">Quản lý Nhân Viên và Bảng Lương</p>
     <div class="d-flex justify-content-center gap-3 mt-4">
-      <a href="/nhanvien" class="btn btn-primary">Nhân Viên</a>
-      <a href="/bangluong" class="btn btn-success">Bảng Lương</a>
-      <a href="/integration" class="btn btn-warning">Báo cáo Lương</a>
+      <a href="/nhanvien" class="btn btn-primary btn-lg btn-custom animate__animated animate__bounceIn animate__delay-2s">Nhân Viên</a>
+      <a href="/bangluong" class="btn btn-secondary btn-lg btn-custom animate__animated animate__bounceIn animate__delay-2s">Bảng Lương</a>
+      <a href="/integration" class="btn btn-accent btn-lg btn-custom animate__animated animate__bounceIn animate__delay-2s">Báo cáo Lương</a>
     </div>
   </div>
 ` }) %>

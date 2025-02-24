@@ -1,39 +1,45 @@
 <%- include('../layouts/layout', { title: 'Thêm Bảng Lương', body: `
-  <h1>Thêm Bảng Lương</h1>
-  <form action="/bangluong/create" method="POST">
-    <div class="mb-3">
-      <label for="nhanVienId" class="form-label">ID Nhân Viên</label>
-      <input type="text" class="form-control" id="nhanVienId" name="nhanVienId" required>
-      <small class="form-text text-muted">Nhập ObjectId của nhân viên (lấy từ danh sách nhân viên).</small>
-    </div>
-    <div class="mb-3">
-      <label for="ngayDiLam" class="form-label">Ngày Đi Làm</label>
-      <input type="date" class="form-control" id="ngayDiLam" name="ngayDiLam" required>
-    </div>
-    <div class="mb-3">
-      <label for="ngayNghi" class="form-label">Số Ngày Nghỉ</label>
-      <input type="number" class="form-control" id="ngayNghi" name="ngayNghi" value="0">
-    </div>
-    <div class="mb-3">
-      <label for="mucLuong" class="form-label">Mức Lương</label>
-      <input type="number" class="form-control" id="mucLuong" name="mucLuong" required>
-    </div>
-    <div class="mb-3">
-      <label for="bonus" class="form-label">Bonus</label>
-      <input type="number" class="form-control" id="bonus" name="bonus" value="0">
-    </div>
-    <div class="mb-3">
-      <label for="phuCap" class="form-label">Phụ Cấp</label>
-      <input type="number" class="form-control" id="phuCap" name="phuCap" value="0">
-    </div>
-    <div class="mb-3">
-      <label for="thue" class="form-label">Thuế</label>
-      <input type="number" class="form-control" id="thue" name="thue" value="0">
-    </div>
-    <div class="mb-3">
-      <label for="ghiChu" class="form-label">Ghi Chú</label>
-      <textarea class="form-control" id="ghiChu" name="ghiChu"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Thêm</button>
-  </form>
+  <h1 class="mb-4 text-primary">Thêm Bảng Lương</h1>
+  <div class="card shadow-sm p-4 rounded">
+    <form action="/bangluong/create" method="POST">
+      <div class="mb-3">
+        <label for="nhanVienId" class="form-label fw-bold text-primary">Chọn Nhân Viên</label>
+        <select class="form-select modern-input" id="nhanVienId" name="nhanVienId" required>
+          <option value="">-- Chọn nhân viên --</option>
+          ${nhanviens.map(nv => `
+            <option value="${nv._id}">${nv.hoTen} (Mã: ${nv.maNhanVien})</option>
+          `).join('')}
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="ngayDiLam" class="form-label fw-bold text-primary">Ngày Đi Làm</label>
+        <input type="date" class="form-control modern-input" id="ngayDiLam" name="ngayDiLam" required>
+      </div>
+      <div class="mb-3">
+        <label for="ngayNghi" class="form-label fw-bold text-primary">Số Ngày Nghỉ</label>
+        <input type="number" class="form-control modern-input" id="ngayNghi" name="ngayNghi" value="0">
+      </div>
+      <div class="mb-3">
+        <label for="mucLuong" class="form-label fw-bold text-primary">Mức Lương</label>
+        <input type="number" class="form-control modern-input" id="mucLuong" name="mucLuong" required>
+      </div>
+      <div class="mb-3">
+        <label for="bonus" class="form-label fw-bold text-primary">Bonus</label>
+        <input type="number" class="form-control modern-input" id="bonus" name="bonus" value="0">
+      </div>
+      <div class="mb-3">
+        <label for="phuCap" class="form-label fw-bold text-primary">Phụ Cấp</label>
+        <input type="number" class="form-control modern-input" id="phuCap" name="phuCap" value="0">
+      </div>
+      <div class="mb-3">
+        <label for="thue" class="form-label fw-bold text-primary">Thuế</label>
+        <input type="number" class="form-control modern-input" id="thue" name="thue" value="0">
+      </div>
+      <div class="mb-3">
+        <label for="ghiChu" class="form-label fw-bold text-primary">Ghi Chú</label>
+        <textarea class="form-control modern-input" id="ghiChu" name="ghiChu"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-custom w-100">Thêm</button>
+    </form>
+  </div>
 ` }) %>
